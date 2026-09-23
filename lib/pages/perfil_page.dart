@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:instagram_flutter/pages/login_page.dart';
 
 import '../utils/mensagem_util.dart';
 import '../widgets/numero_perfil.dart';
 
 class PerfilPage extends StatelessWidget {
   const PerfilPage({super.key});
+
+  void sair(BuildContext context) {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => const LoginPage()),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +38,10 @@ class PerfilPage extends StatelessWidget {
                   mostrarMensagem(context, 'Abrir menu');
                 },
                 icon: const Icon(Icons.menu),
+              ),
+              IconButton(
+                onPressed: () => sair(context),
+                icon: const Icon(Icons.logout),
               ),
             ],
           ),
